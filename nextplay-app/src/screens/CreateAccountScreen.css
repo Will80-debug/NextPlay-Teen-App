@@ -1,0 +1,129 @@
+.create-account-screen .content-box {
+  padding: 50px 30px;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.auth-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 18px 30px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  background: rgba(40, 20, 10, 0.6);
+  color: #f4e4c1;
+}
+
+.auth-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+  border-color: rgba(255, 215, 0, 0.7);
+}
+
+.apple-button {
+  background: linear-gradient(135deg, rgba(60, 30, 15, 0.9) 0%, rgba(30, 15, 8, 0.9) 100%);
+}
+
+.google-button {
+  background: linear-gradient(135deg, rgba(50, 25, 12, 0.9) 0%, rgba(25, 12, 6, 0.9) 100%);
+}
+
+.email-button {
+  background: linear-gradient(135deg, rgba(40, 20, 10, 0.8) 0%, rgba(20, 10, 5, 0.8) 100%);
+}
+
+.auth-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+  background: white;
+  color: #4285f4;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.auth-text {
+  flex: 1;
+  text-align: left;
+}
+
+.optional-text {
+  font-size: 0.9rem;
+  color: #a89570;
+}
+
+.hide-email-badge {
+  position: absolute;
+  top: -8px;
+  right: 15px;
+  background: rgba(139, 69, 19, 0.9);
+  color: #f4e4c1;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  white-space: nowrap;
+}
+
+.academy-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 25px;
+  color: #d4b896;
+}
+
+.academy-icon {
+  font-size: 1rem;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #d4b896;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.terms-footer {
+  margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+  .auth-button {
+    padding: 16px 25px;
+    font-size: 1rem;
+  }
+
+  .hide-email-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+}

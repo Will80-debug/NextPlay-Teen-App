@@ -1,0 +1,75 @@
+.ad-transparency-screen .content-box {
+  max-width: 650px;
+}
+
+.ad-icon {
+  font-size: 4rem;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.ad-description {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.info-box {
+  background: rgba(40, 20, 10, 0.6);
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 15px;
+  padding: 25px;
+  margin: 25px 0;
+}
+
+.info-title {
+  color: #f4e4c1;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-list li {
+  color: #d4b896;
+  font-size: 1rem;
+  line-height: 1.8;
+  padding: 8px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.info-list li::before {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .ad-icon {
+    font-size: 3rem;
+  }
+
+  .info-box {
+    padding: 20px;
+  }
+
+  .info-list li {
+    font-size: 0.95rem;
+  }
+}

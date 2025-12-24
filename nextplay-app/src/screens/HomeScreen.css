@@ -3,6 +3,32 @@
   background: radial-gradient(ellipse at top, #1a0a00 0%, #000000 100%);
   position: relative;
   padding-bottom: 80px;
+  overflow-x: hidden;
+}
+
+.home-screen::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, rgba(255, 215, 0, 0.3), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 60px 70px, rgba(255, 215, 0, 0.2), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 50px 50px, rgba(255, 215, 0, 0.3), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 215, 0, 0.2), rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 90px 10px, rgba(255, 215, 0, 0.3), rgba(0,0,0,0));
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: starfield 60s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes starfield {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-200px); }
 }
 
 /* Header */
@@ -10,12 +36,20 @@
   padding: 20px;
   text-align: center;
   background: linear-gradient(180deg, rgba(26, 10, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
+  position: relative;
+  z-index: 1;
 }
 
 .home-logo {
-  max-width: 300px;
+  max-width: 350px;
   height: auto;
-  filter: drop-shadow(0 5px 15px rgba(255, 215, 0, 0.3));
+  filter: drop-shadow(0 8px 20px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 40px rgba(255, 140, 0, 0.3));
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Tab Navigation */
@@ -26,6 +60,8 @@
   gap: 15px;
   padding: 15px 0;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .tab-button {
@@ -53,22 +89,29 @@
 .daily-challenge-banner {
   position: relative;
   margin: 0 15px 25px;
-  background: linear-gradient(135deg, rgba(139, 69, 19, 0.6) 0%, rgba(80, 40, 15, 0.6) 100%);
-  border: 2px solid rgba(255, 215, 0, 0.6);
+  background: linear-gradient(135deg, rgba(80, 40, 15, 0.9) 0%, rgba(50, 25, 10, 0.9) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.7);
   border-radius: 20px;
-  padding: 20px;
+  padding: 18px 20px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(255, 140, 0, 0.3), inset 0 1px 0 rgba(255, 215, 0, 0.2);
+  z-index: 1;
 }
+
+.daily-challenge-banner::before {
+  content: '';\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 100, 0, 0.05) 100%);\n  pointer-events: none;\n}
 
 .banner-content {
   display: flex;
   align-items: center;
   gap: 15px;
+  position: relative;
+  z-index: 1;
 }
 
 .banner-icon {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));\n  flex-shrink: 0;
 }
 
 .banner-text {
@@ -77,32 +120,39 @@
 
 .banner-title {
   color: #f4e4c1;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
 }
 
 .banner-subtitle {
-  color: #f4e4c1;
-  font-size: 1.3rem;
+  color: #fff;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin-top: 2px;
+  margin-top: 3px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .banner-button {
-  background: rgba(139, 69, 19, 0.8);
-  border: 2px solid rgba(255, 215, 0, 0.5);
+  background: linear-gradient(135deg, rgba(100, 50, 20, 0.95) 0%, rgba(70, 35, 15, 0.95) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.6);
   border-radius: 25px;
-  padding: 10px 25px;
+  padding: 10px 28px;
   color: #f4e4c1;
   font-weight: 700;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .banner-button:hover {
   transform: scale(1.05);
-  background: rgba(139, 69, 19, 1);
+  background: linear-gradient(135deg, rgba(120, 60, 25, 1) 0%, rgba(90, 45, 20, 1) 100%);
+  border-color: rgba(255, 215, 0, 0.8);
+  box-shadow: 0 6px 16px rgba(255, 140, 0, 0.4);
 }
 
 .banner-play {
@@ -110,39 +160,53 @@
   right: 20px;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 2;
 }
 
 .play-button-large {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #8b1a1a 0%, #4a0e0e 100%);
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f4e4c1;
-  font-size: 1.8rem;
-  box-shadow: 0 4px 15px rgba(139, 26, 26, 0.5);
-  border: 2px solid rgba(255, 215, 0, 0.4);
+  padding-left: 4px;
+  color: #fff;
+  font-size: 2rem;
+  box-shadow: 0 6px 20px rgba(139, 26, 26, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 3px solid rgba(255, 215, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button-large:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(139, 26, 26, 0.8);
+  border-color: rgba(255, 215, 0, 0.7);
 }
 
 .new-badge {
   position: absolute;
-  top: -5px;
-  right: 15px;
-  background: linear-gradient(135deg, #d4a574 0%, #8b4513 100%);
+  top: -8px;
+  right: 20px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
   color: #fff;
-  padding: 5px 15px;
-  border-radius: 15px;
+  padding: 6px 16px;
+  border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 700;
-  box-shadow: 0 2px 10px rgba(212, 165, 116, 0.5);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.6);
+  border: 1px solid rgba(255, 215, 0, 0.4);
+  z-index: 3;
 }
 
 /* Challenges Section */
 .challenges-section {
   padding: 0 15px;
   margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
 }
 
 .section-header {
@@ -156,6 +220,7 @@
   color: #f4e4c1;
   font-size: 1.5rem;
   font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .see-all-button {
@@ -166,10 +231,14 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .see-all-button:hover {
   color: #f4e4c1;
+  transform: translateX(3px);
 }
 
 .challenges-scroll {
@@ -196,81 +265,139 @@
 }
 
 .challenge-card {
-  min-width: 180px;
-  background: rgba(40, 20, 10, 0.6);
-  border: 2px solid rgba(255, 215, 0, 0.4);
+  min-width: 160px;
+  max-width: 160px;
+  background: linear-gradient(135deg, rgba(40, 20, 10, 0.8) 0%, rgba(20, 10, 5, 0.8) 100%);
+  border: 2px solid transparent;
   border-radius: 15px;
-  padding: 20px;
+  padding: 0;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  background-clip: padding-box;
+}
+
+.challenge-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 15px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.6), rgba(212, 165, 116, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .challenge-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 215, 0, 0.6);
-  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
 }
 
-.challenge-icon {
-  font-size: 3rem;
-  margin-bottom: 10px;
+.challenge-card:hover::before {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(212, 165, 116, 0.6));
+}
+
+.challenge-thumbnail {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+
+.challenge-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.challenge-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.challenge-icon-small {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
 .challenge-title {
   color: #f4e4c1;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin: 10px 8px 8px;
+  line-height: 1.2;
 }
 
 .challenge-stars {
   color: #ffd700;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  padding-bottom: 10px;
 }
 
 /* Trending Section */
 .trending-section {
   padding: 0 15px;
   margin-bottom: 25px;
+  position: relative;
+  z-index: 1;
 }
 
 .video-card {
   position: relative;
-  background: rgba(30, 15, 8, 0.8);
-  border: 2px solid rgba(255, 215, 0, 0.3);
+  background: linear-gradient(135deg, rgba(40, 25, 15, 0.9) 0%, rgba(20, 10, 5, 0.9) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.4);
   border-radius: 20px;
   overflow: hidden;
-  padding: 15px;
+  padding: 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
 }
 
 .trending-badge {
   position: absolute;
   top: 15px;
   left: 15px;
-  background: rgba(139, 69, 19, 0.9);
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.95) 0%, rgba(100, 50, 15, 0.95) 100%);
   color: #f4e4c1;
-  padding: 5px 15px;
-  border-radius: 15px;
+  padding: 6px 16px;
+  border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 700;
-  z-index: 2;
+  z-index: 3;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .video-content {
-  margin-bottom: 15px;
+  position: relative;
+  width: 100%;
 }
 
 .video-thumbnail {
   width: 100%;
   aspect-ratio: 16/9;
-  background: linear-gradient(135deg, rgba(255, 140, 60, 0.3) 0%, rgba(255, 100, 40, 0.2) 100%);
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
   overflow: hidden;
+}
+
+.video-thumbnail-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .thumbnail-placeholder {
@@ -287,21 +414,21 @@
 
 .video-actions {
   position: absolute;
-  right: 25px;
+  right: 15px;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   z-index: 2;
 }
 
 .action-button {
-  background: rgba(20, 10, 5, 0.8);
-  border: 2px solid rgba(255, 215, 0, 0.4);
+  background: rgba(20, 10, 5, 0.85);
+  border: 2px solid rgba(255, 215, 0, 0.5);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -309,16 +436,18 @@
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 5px;
+  backdrop-filter: blur(5px);
 }
 
 .action-button:hover {
   transform: scale(1.1);
-  background: rgba(30, 15, 8, 0.9);
-  border-color: rgba(255, 215, 0, 0.6);
+  background: rgba(30, 15, 8, 0.95);
+  border-color: rgba(255, 215, 0, 0.7);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
 }
 
 .action-icon {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .action-count {
@@ -329,7 +458,8 @@
 }
 
 .video-info {
-  margin-top: 15px;
+  padding: 15px;
+  background: rgba(10, 5, 2, 0.6);
 }
 
 .user-info {
@@ -340,23 +470,35 @@
 }
 
 .user-avatar {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 215, 0, 0.4);
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  overflow: hidden;
+  background: rgba(40, 20, 10, 0.8);
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .username {
   color: #f4e4c1;
   font-weight: 700;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .video-caption {
   color: #d4b896;
   font-size: 0.95rem;
   margin-bottom: 8px;
+  line-height: 1.4;
 }
 
 .video-music {
@@ -373,13 +515,15 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(26, 10, 0, 0.98) 20%, rgba(20, 10, 5, 0.98) 100%);
-  border-top: 2px solid rgba(255, 215, 0, 0.3);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(20, 10, 5, 0.98) 15%, rgba(15, 8, 4, 0.98) 100%);
+  border-top: 2px solid rgba(255, 215, 0, 0.4);
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px 0;
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+  padding: 12px 0 10px;
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  z-index: 100;
 }
 
 .nav-button {
@@ -389,15 +533,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 5px 15px;
-  color: #a89570;
+  padding: 5px 12px;
+  color: #8b7355;
+  min-width: 60px;
 }
 
 .nav-button.active {
-  color: #f4e4c1;
+  color: #ffd700;
+}
+
+.nav-button.active .nav-icon {
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
 }
 
 .nav-button:hover {
@@ -406,45 +555,58 @@
 }
 
 .nav-icon {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
 }
 
 .nav-label {
   font-size: 0.7rem;
   font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .center-button {
   position: relative;
-  margin-top: -30px;
+  margin-top: -35px;
+  min-width: 70px;
 }
 
 .center-play-button {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(135deg, #d4a574 0%, #8b4513 100%);
-  border: 3px solid rgba(255, 215, 0, 0.6);
+  width: 65px;
+  height: 65px;
+  background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%);
+  border: 3px solid rgba(255, 215, 0, 0.7);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f4e4c1;
-  font-size: 1.5rem;
-  box-shadow: 0 5px 20px rgba(212, 165, 116, 0.5);
+  padding-left: 4px;
+  color: #fff;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 25px rgba(185, 28, 28, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.center-button:hover .center-play-button {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(185, 28, 28, 0.8);
+  border-color: rgba(255, 215, 0, 0.9);
 }
 
 .notification-badge {
   position: absolute;
-  top: 0;
-  right: 10px;
-  background: #d32f2f;
+  top: 3px;
+  right: 8px;
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
   color: white;
   font-size: 0.65rem;
   font-weight: 700;
-  padding: 2px 6px;
-  border-radius: 10px;
-  min-width: 18px;
+  padding: 3px 7px;
+  border-radius: 12px;
+  min-width: 20px;
   text-align: center;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.5);
 }
 
 @media (max-width: 768px) {

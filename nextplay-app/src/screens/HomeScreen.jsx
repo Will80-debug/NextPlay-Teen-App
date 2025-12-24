@@ -5,10 +5,34 @@ function HomeScreen() {
   const [activeTab, setActiveTab] = useState('feed');
 
   const challenges = [
-    { id: 1, title: 'Create a Funny Skit!', image: '🎭', stars: 2 },
-    { id: 2, title: 'Dance Party!', image: '💃', stars: 3 },
-    { id: 3, title: 'Edit Like a Pro!', image: '📹', stars: 3 },
-    { id: 4, title: 'STEM Experiment', image: '🧪', stars: 2 }
+    { 
+      id: 1, 
+      title: 'Create a Funny Skit!', 
+      image: '🎭',
+      thumbnail: 'https://picsum.photos/400/300?random=1',
+      stars: 2 
+    },
+    { 
+      id: 2, 
+      title: 'Dance Party!', 
+      image: '💃',
+      thumbnail: 'https://picsum.photos/400/300?random=2',
+      stars: 3 
+    },
+    { 
+      id: 3, 
+      title: 'Edit Like a Pro!', 
+      image: '📹',
+      thumbnail: 'https://picsum.photos/400/300?random=3',
+      stars: 3 
+    },
+    { 
+      id: 4, 
+      title: 'STEM Experiment', 
+      image: '🧪',
+      thumbnail: 'https://picsum.photos/400/300?random=4',
+      stars: 2 
+    }
   ];
 
   return (
@@ -61,7 +85,12 @@ function HomeScreen() {
         <div className="challenges-scroll">
           {challenges.map((challenge) => (
             <div key={challenge.id} className="challenge-card">
-              <div className="challenge-icon">{challenge.image}</div>
+              <div className="challenge-thumbnail">
+                <img src={challenge.thumbnail} alt={challenge.title} />
+                <div className="challenge-overlay">
+                  <div className="challenge-icon-small">{challenge.image}</div>
+                </div>
+              </div>
               <div className="challenge-title">{challenge.title}</div>
               <div className="challenge-stars">
                 {'⭐'.repeat(challenge.stars)}
@@ -78,34 +107,40 @@ function HomeScreen() {
           
           <div className="video-content">
             <div className="video-thumbnail">
-              <div className="thumbnail-placeholder">
-                🛹
-                <div className="thumbnail-text">Skatelife!</div>
-              </div>
+              <img 
+                src="https://picsum.photos/800/600?random=5" 
+                alt="Skateboarding video"
+                className="video-thumbnail-img"
+              />
             </div>
-          </div>
 
-          {/* Video Actions */}
-          <div className="video-actions">
-            <button className="action-button">
-              <span className="action-icon">❤️</span>
-              <span className="action-count">27.8K</span>
-            </button>
-            <button className="action-button">
-              <span className="action-icon">💬</span>
-              <span className="action-count">1,129</span>
-            </button>
-            <button className="action-button">
-              <span className="action-icon">⭐</span>
-              <span className="action-count">612</span>
-            </button>
+            {/* Video Actions */}
+            <div className="video-actions">
+              <button className="action-button">
+                <span className="action-icon">❤️</span>
+                <span className="action-count">27.8K</span>
+              </button>
+              <button className="action-button">
+                <span className="action-icon">💬</span>
+                <span className="action-count">1,129</span>
+              </button>
+              <button className="action-button">
+                <span className="action-icon">⭐</span>
+                <span className="action-count">612</span>
+              </button>
+            </div>
           </div>
 
           {/* Video Info */}
           <div className="video-info">
             <div className="user-info">
-              <img src="/nextplay-logo-round.png" alt="User" className="user-avatar" />
-              <span className="username">kickflip_kid</span>
+              <div className="user-avatar">
+                <img 
+                  src="https://picsum.photos/100/100?random=6" 
+                  alt="kickflip_kid"
+                />
+              </div>
+              <span className="username">👤 kickflip_kid</span>
             </div>
             <div className="video-caption">
               Skaterlife! 😎🔥 #skateboard

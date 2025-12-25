@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import RecordUpload from '../components/RecordUpload';
 import './HomeScreen.css';
 
 function HomeScreen() {
   const [activeTab, setActiveTab] = useState('feed');
+  const [showRecordUpload, setShowRecordUpload] = useState(false);
 
   const challenges = [
     { 
@@ -162,8 +164,8 @@ function HomeScreen() {
           <span className="nav-icon">🔍</span>
           <span className="nav-label">Explore</span>
         </button>
-        <button className="nav-button center-button">
-          <div className="center-play-button">▶</div>
+        <button className="nav-button center-button" onClick={() => setShowRecordUpload(true)}>
+          <div className="center-play-button">+</div>
         </button>
         <button className="nav-button">
           <span className="nav-icon">🔔</span>
@@ -175,6 +177,17 @@ function HomeScreen() {
           <span className="nav-label">Profile</span>
         </button>
       </div>
+
+      {/* Record/Upload Modal */}
+      {showRecordUpload && (
+        <RecordUpload 
+          onClose={() => setShowRecordUpload(false)}
+          onSuccess={() => {
+            setShowRecordUpload(false);
+            // Refresh feed or show success message
+          }}
+        />
+      )}
     </div>
   );
 }

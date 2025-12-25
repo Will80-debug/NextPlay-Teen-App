@@ -1,0 +1,379 @@
+.record-upload-choice {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choice-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+}
+
+.choice-modal {
+  position: relative;
+  background: radial-gradient(ellipse at top, #1a0a00 0%, #000000 100%);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 500px;
+  width: 90%;
+  z-index: 1;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: #D4A574;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  background: rgba(255, 215, 0, 0.1);
+  color: #FFD700;
+}
+
+.choice-title {
+  color: #FFD700;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  text-align: center;
+}
+
+.choice-subtitle {
+  color: #D4A574;
+  font-size: 16px;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+
+.choice-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.choice-button {
+  background: rgba(40, 20, 10, 0.8);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.choice-button:hover {
+  border-color: rgba(255, 215, 0, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2);
+}
+
+.button-icon {
+  font-size: 48px;
+  flex-shrink: 0;
+}
+
+.button-text {
+  flex: 1;
+  text-align: left;
+}
+
+.button-title {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.button-desc {
+  color: #D4A574;
+  font-size: 14px;
+}
+
+/* Processing Screen */
+.processing-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, #1a0a00 0%, #000000 100%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.processing-content {
+  text-align: center;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.spinner-container {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 32px;
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  border: 8px solid rgba(255, 215, 0, 0.2);
+  border-top-color: #FFD700;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.processing-title {
+  color: #FFD700;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.processing-subtitle {
+  color: #D4A574;
+  font-size: 16px;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+}
+
+.processing-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.step.completed {
+  color: #22c55e;
+}
+
+.step.active {
+  color: #FFD700;
+  font-weight: 600;
+}
+
+.step-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* Success Screen */
+.success-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, #1a0a00 0%, #000000 100%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-content {
+  text-align: center;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.success-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+  animation: bounce 0.5s ease-out;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.success-title {
+  color: #FFD700;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.success-subtitle {
+  color: #D4A574;
+  font-size: 18px;
+  margin: 0 0 32px 0;
+}
+
+.success-button {
+  padding: 14px 40px;
+  background: linear-gradient(135deg, #FFD700 0%, #D4A574 100%);
+  border: none;
+  border-radius: 12px;
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.success-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Error Screen */
+.error-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at top, #1a0a00 0%, #000000 100%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-content {
+  text-align: center;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.error-icon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.error-title {
+  color: #dc2626;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+}
+
+.error-message {
+  color: #D4A574;
+  font-size: 16px;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.retry-button {
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #B91C1C 0%, #7F1D1D 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(185, 28, 28, 0.4);
+}
+
+.cancel-button {
+  padding: 14px 28px;
+  background: rgba(40, 20, 10, 0.8);
+  border: 2px solid rgba(255, 215, 0, 0.3);
+  border-radius: 12px;
+  color: #D4A574;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-button:hover {
+  border-color: rgba(255, 215, 0, 0.5);
+  color: #FFD700;
+}
+
+@media (max-width: 768px) {
+  .choice-modal {
+    padding: 32px 24px;
+  }
+
+  .choice-title {
+    font-size: 24px;
+  }
+
+  .button-icon {
+    font-size: 40px;
+  }
+
+  .button-title {
+    font-size: 18px;
+  }
+
+  .processing-content,
+  .success-content,
+  .error-content {
+    padding: 24px;
+  }
+
+  .error-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .retry-button,
+  .cancel-button {
+    width: 100%;
+  }
+}

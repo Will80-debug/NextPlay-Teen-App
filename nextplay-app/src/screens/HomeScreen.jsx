@@ -11,28 +11,28 @@ function HomeScreen() {
       id: 1, 
       title: 'Create a Funny Skit!', 
       image: '🎭',
-      thumbnail: null,
+      thumbnail: '/images/challenge-comedy.jpg',
       stars: 2 
     },
     { 
       id: 2, 
       title: 'Dance Party!', 
       image: '💃',
-      thumbnail: null,
+      thumbnail: '/images/challenge-dance.jpg',
       stars: 3 
     },
     { 
       id: 3, 
       title: 'Edit Like a Pro!', 
       image: '📹',
-      thumbnail: null,
+      thumbnail: '/images/challenge-video-editing.jpg',
       stars: 3 
     },
     { 
       id: 4, 
       title: 'STEM Experiment', 
       image: '🧪',
-      thumbnail: null,
+      thumbnail: '/images/challenge-stem.jpg',
       stars: 2 
     }
   ];
@@ -109,10 +109,7 @@ function HomeScreen() {
           
           <div className="video-content">
             <div className="video-thumbnail">
-              <div className="video-placeholder">
-                <div className="placeholder-icon">🛹</div>
-                <div className="placeholder-text">Skateboarding Video</div>
-              </div>
+              <img src="/images/trending-skateboarding.jpg" alt="Skateboarding Video" className="video-thumbnail-img" />
             </div>
 
             {/* Video Actions */}
@@ -136,7 +133,7 @@ function HomeScreen() {
           <div className="video-info">
             <div className="user-info">
               <div className="user-avatar">
-                <div className="avatar-placeholder">🛹</div>
+                <img src="/images/user-avatar.jpg" alt="User Avatar" className="avatar-img" />
               </div>
               <span className="username">👤 kickflip_kid</span>
             </div>

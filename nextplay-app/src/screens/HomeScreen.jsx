@@ -11,28 +11,28 @@ function HomeScreen() {
       id: 1, 
       title: 'Create a Funny Skit!', 
       image: '🎭',
-      thumbnail: 'https://picsum.photos/400/300?random=1',
+      thumbnail: null,
       stars: 2 
     },
     { 
       id: 2, 
       title: 'Dance Party!', 
       image: '💃',
-      thumbnail: 'https://picsum.photos/400/300?random=2',
+      thumbnail: null,
       stars: 3 
     },
     { 
       id: 3, 
       title: 'Edit Like a Pro!', 
       image: '📹',
-      thumbnail: 'https://picsum.photos/400/300?random=3',
+      thumbnail: null,
       stars: 3 
     },
     { 
       id: 4, 
       title: 'STEM Experiment', 
       image: '🧪',
-      thumbnail: 'https://picsum.photos/400/300?random=4',
+      thumbnail: null,
       stars: 2 
     }
   ];
@@ -88,7 +88,7 @@ function HomeScreen() {
           {challenges.map((challenge) => (
             <div key={challenge.id} className="challenge-card">
               <div className="challenge-thumbnail">
-                <img src={challenge.thumbnail} alt={challenge.title} />
+                {challenge.thumbnail && <img src={challenge.thumbnail} alt={challenge.title} />}
                 <div className="challenge-overlay">
                   <div className="challenge-icon-small">{challenge.image}</div>
                 </div>
@@ -109,11 +109,10 @@ function HomeScreen() {
           
           <div className="video-content">
             <div className="video-thumbnail">
-              <img 
-                src="https://picsum.photos/800/600?random=5" 
-                alt="Skateboarding video"
-                className="video-thumbnail-img"
-              />
+              <div className="video-placeholder">
+                <div className="placeholder-icon">🛹</div>
+                <div className="placeholder-text">Skateboarding Video</div>
+              </div>
             </div>
 
             {/* Video Actions */}
@@ -137,10 +136,7 @@ function HomeScreen() {
           <div className="video-info">
             <div className="user-info">
               <div className="user-avatar">
-                <img 
-                  src="https://picsum.photos/100/100?random=6" 
-                  alt="kickflip_kid"
-                />
+                <div className="avatar-placeholder">🛹</div>
               </div>
               <span className="username">👤 kickflip_kid</span>
             </div>

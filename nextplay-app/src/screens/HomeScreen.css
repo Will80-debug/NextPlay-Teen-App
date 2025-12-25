@@ -309,6 +309,7 @@
   width: 100%;
   height: 120px;
   overflow: hidden;
+  background: linear-gradient(135deg, rgba(60, 30, 15, 0.9) 0%, rgba(40, 20, 10, 0.9) 100%);
 }
 
 .challenge-thumbnail img {
@@ -391,6 +392,7 @@
   aspect-ratio: 16/9;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, rgba(60, 30, 15, 0.9) 0%, rgba(40, 20, 10, 0.9) 100%);
 }
 
 .video-thumbnail-img {
@@ -398,6 +400,31 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.video-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(60, 30, 15, 0.9) 0%, rgba(40, 20, 10, 0.9) 100%);
+  padding: 40px;
+}
+
+.placeholder-icon {
+  font-size: 5rem;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  margin-bottom: 10px;
+}
+
+.placeholder-text {
+  font-size: 1.5rem;
+  color: #f4e4c1;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .thumbnail-placeholder {
@@ -476,6 +503,9 @@
   border: 2px solid rgba(255, 215, 0, 0.5);
   overflow: hidden;
   background: rgba(40, 20, 10, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .user-avatar img {
@@ -483,6 +513,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+.avatar-placeholder {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
 }
 
 .username {

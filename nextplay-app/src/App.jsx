@@ -10,17 +10,19 @@ import AdTransparencyScreen from './screens/AdTransparencyScreen';
 import HomeScreen from './screens/HomeScreen';
 
 function App() {
-  const [userAge, setUserAge] = useState(null);
-  const [ageVerified, setAgeVerified] = useState(false);
-  const [accountCreated, setAccountCreated] = useState(false);
-  const [interests, setInterests] = useState([]);
-  const [safetySettings, setSafetySettings] = useState(null);
+  // Set to true for testing/demo purposes (bypass onboarding)
+  const [userAge, setUserAge] = useState(16);
+  const [ageVerified, setAgeVerified] = useState(true);
+  const [accountCreated, setAccountCreated] = useState(true);
+  const [interests, setInterests] = useState(['Sports', 'Music']);
+  const [safetySettings, setSafetySettings] = useState({ dataCollection: true });
 
   return (
     <Router>
       <div className="min-h-screen bg-black">
         <Routes>
-          <Route path="/" element={<WelcomeScreen />} />
+          <Route path="/" element={<Navigate to="/home" replace />} />
+          <Route path="/welcome" element={<WelcomeScreen />} />
           <Route 
             path="/age" 
             element={
